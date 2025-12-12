@@ -1,12 +1,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import Unocss from 'unocss/astro';
+import icon from 'astro-icon'; // 👈 补回了这一行：引入图标功能
 
 // https://astro.build/config
 export default defineConfig({
-  // 关键修改1：强制生成纯静态 HTML 文件，Cloudflare 最喜欢这个
-  output: 'static', 
-  // 关键修改2：删掉了那个惹祸的 netlify 适配器
-  site: 'https://astro-bento-portfolio-cji.pages.dev', 
-  integrations: [sitemap(), Unocss()],
+  // 保持静态模式
+  output: 'static',
+  site: 'https://astro-bento-portfolio-cji.pages.dev',
+  // 👇 补回了 icon()：启用图标插件
+  integrations: [sitemap(), Unocss(), icon()],
 });
