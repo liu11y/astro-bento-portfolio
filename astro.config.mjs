@@ -4,9 +4,9 @@ import Unocss from 'unocss/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  // 把这里改成 static，生成纯静态网页
+  // 关键修改1：强制生成纯静态 HTML 文件，Cloudflare 最喜欢这个
   output: 'static', 
-  // 删掉了 adapter: netlify() 那一行
-  site: 'https://你的域名.pages.dev', // 这里如果你没买域名，可以先随便填，或者不填
+  // 关键修改2：删掉了那个惹祸的 netlify 适配器
+  site: 'https://astro-bento-portfolio-cji.pages.dev', 
   integrations: [sitemap(), Unocss()],
 });
